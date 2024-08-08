@@ -1,0 +1,261 @@
+#Task 1:Create an image gallery using a CSS grid
+#Code:
+html code :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="ig.css">
+</head>
+<body>
+    <div class="container">
+        <img class="one" src="first.jpg" title="first">
+
+        <img class="two" src="second.jpg" title="second">
+
+        <img class="three" src="third.jpg" title="third">
+
+        <img class="four" src="fourth.jpg" title="fourth">
+
+        <img class="five" src="fifth.jpg" title="fifth">
+
+        <img class="six" src="sixth.jpg" title="sixth">
+    </div>
+</body>
+</html>
+
+css code:
+.container{
+    display: grid;
+    border: 2px groove black;
+    grid-template-columns: repeat(3,1fr);
+    border: 2px groove black;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.one{
+    grid-row: 1/1;
+    grid-column: 1/3;
+}
+.three{
+    grid-row: 2/4;
+    grid-column: 1/2;
+}
+.five{
+    grid-row: 2/4;
+    grid-column: 3/4;
+}
+.six{
+    grid-row: 3/4;
+    grid-column: 2/3;
+}
+
+#Task 2: Write code to arrange containers with texts A, B, C, and D as shown in the below image
+#Code:
+html code :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="container.css">
+</head>
+<body>
+    <div id="container">
+        <div class="a">
+            <p>A</p>
+        </div>
+        <div class="b">
+            <p>B</p>
+        </div>
+        <div class="c">
+            <p>C</p>
+        </div>
+        <div class="d">
+            <p>D</p>
+        </div>
+    </div>
+</body>
+</html>
+
+css code :
+#container{
+    border: 2px inset black;
+    height: 300px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+div{
+    /* background-color: bisque; */
+    height: 100%;
+    width: 100%;
+}
+p{
+    margin-top: 25px;
+    margin-left: 10px;
+}
+.a{
+    border-radius: 5px;
+    background-color: bisque;
+    grid-row: 1/2;
+    grid-column: 1/3;
+}
+.b{
+    border-radius: 5px;
+    background-color: bisque;
+    grid-row: 1/3;
+    grid-column: 3/4;
+}
+.c{
+    border-radius: 5px;
+    background-color: bisque;
+    grid-row: 2/3;
+    grid-column: 1/2;
+}
+.d{
+    border-radius: 5px;
+    background-color: bisque;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+#Task 3:Explain the use of grid-auto-row and grid-auto-column using code examples
+#Ans :
+In CSS Grid, the properties grid-auto-rows and grid-auto-columns are used to define 
+the size of implicitly created rows and columns when using the grid-auto-flow: row; or grid-auto-flow: column; property, respectively.
+When using grid-auto-flow with row, new rows are created when grid items overflow the explicitly defined rows in the grid container.
+Css code Example :
+.grid-container {
+  display: grid;
+  grid-template-rows: 100px 100px; /* Explicitly defined rows */
+  grid-auto-flow: row;
+  grid-auto-rows: 50px; /* Implicitly created rows will have a height of 50px */
+}
+when using grid-auto-flow with column, new columns are created when grid items overflow the explicitly defined columns in the grid container
+Css code Example :
+.grid-container {
+  display: grid;
+  grid-template-columns: 100px 100px; /* Explicitly defined columns */
+  grid-auto-flow: column;
+  grid-auto-columns: 50px; /* Implicitly created columns will have a width of 50px */
+}
+
+#Task 4: Write CSS to show numbers as shown in the figure, without altering the below html code.
+<div class="container">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+    <div class="box box7">7</div>
+    <div class="box box8">8</div>
+ </div>
+#Code:
+html code :
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="t4.css">
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">1</div>
+        <div class="box box2">2</div>
+        <div class="box box3">3</div>
+        <div class="box box4">4</div>
+        <div class="box box5">5</div>
+        <div class="box box6">6</div>
+        <div class="box box7">7</div>
+        <div class="box box8">8</div>
+     </div>
+    
+</body>
+</html>
+
+css code :
+.container{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 0.5rem;
+    border: 2px solid black;
+    height: 100px;
+    padding: 20px;
+}
+.box{
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    align-content: start;
+}
+.box3{
+    /* text-align: center; */
+    background-color: rgb(65, 60, 60);
+    color: white;
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+.box4{
+    background-color: gray;
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+.box5{
+    background-color: rgb(65, 60, 60);
+    color: white;
+    grid-row: 1/2;
+    grid-column: 3/4;
+}
+.box6{
+    background-color: gray;
+    grid-row: 1/2;
+    grid-column: 4/5;
+}
+.box7{
+    background-color: rgb(65, 60, 60);
+    color: white;
+    grid-row: 1/2;
+    grid-column: 5/6;
+}
+.box8{
+    background-color: gray;
+    grid-row: 1/2;
+    grid-column: 6/7;
+}
+.box1{
+    background-color: rgb(65, 60, 60);
+    color: white;
+}
+.box2{
+    background-color: gray;
+
+}
+
+#Task 5:Explain the difference between justify-items and justify-self using code examples
+#Ans:
+justify-items: it sets the default alignment for all the items within the grid, unless overridden 
+by the justify-self property on individual grid items.
+Css code example :
+.grid-container {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  justify-items: center; /* Aligns all items along the inline axis to the center */
+}
+justify-self: This property allows individual grid items to override the default alignment 
+set by justify-items. It aligns the item within its grid cell along the inline axis.
+Css code example :
+.grid-item {
+  justify-self: end; /* Aligns this specific item to the end of the cell along the inline axis */
+}
+
+#all the html code are done using external css and all the images are in the images folder
